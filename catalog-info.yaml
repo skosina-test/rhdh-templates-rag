@@ -1,0 +1,23 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: rag-github 
+  description: Secure Supply Chain Example for RAG Chatbot Application   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:
+    # ArgoCD apps from this template used rhtap-gitops as the grouping
+    argocd/app-selector: rhtap/gitops=rag-github  
+    janus-idp.io/tekton: rag-github 
+    backstage.io/kubernetes-id: rag-github 
+    backstage.io/techdocs-ref: dir:. 
+    quay.io/repository-slug: skosina_org/rag-app
+  tags: ["ai", "llamacpp", "vllm", "python", "rag", "database"] 
+spec:
+  type: service
+  owner: user:default/skosina 
+  lifecycle: experimental
+ 
